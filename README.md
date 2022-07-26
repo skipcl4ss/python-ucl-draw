@@ -12,6 +12,7 @@ Which means that names such as Manchester United must be written as **Manchester
 Each winner is paired with a runner, where the following rules should apply:
 * The two teams should be of different nationality
 * The two teams should be of different groups
+
 The draw is performed by getting a pot of the runners and randomly choosing a runner form the pot.
 Then a pot of the eligible winners that specific runner is made and winner is chosen also randomly.
 If a runner in the pot has only one eligible winner, they are paired immediately.
