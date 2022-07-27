@@ -24,12 +24,12 @@ We take inputs from user using input function, for multiple inputs we use the sp
 Then we make a dictionary of winners, where the names are keys and the nations as values, we do the same for runners.
 We then make two list of **items** of the two dictionaries respectively, where there is a list for winners and another for runners.
 Then we copy the two lists of items into editable lists of winners and runners called pots, where both will  decrease with every pairing.
-#### ***eligibleWinners(runner, winners)***
+#### **eligibleWinners(runner, winners)**
 A function for making a list of eligible winners for a certain runner and append them in a pot of eligible winners by applying the rules above.
-
+#### **Special Case**
 Since that the max number of teams from the same nation is five, there is a special case where there are six winners, a runner team would find that four of the six winners are of the same of that runner's nation, and the fifth winner is of the same group oof the runner, then the sixth winner is paired automatically with that runner.
 This can also happen with less than six winners, eg. five winners with four of them of the same nation of the spicific runner, or three of the same nation and one of the same group of the runner.
-#### ***pairing process***
+#### **Pairing Process**
 If the special case happens, pair the two teams, remove them from their respective pots and repeat the pairing process.
 If the special case does not happen, we choose the runner randomly, make a list of the eligible winners and choose a winner from that list, pair the two teams, remove them from their respective pots and repeat the pairing process.
 The process ends when the runners Pot is empty
