@@ -1,25 +1,43 @@
 # python-ucl-draw
-### A simulation of the UEFA Champions League Round of 16 draw using python
+#### A simulation of the UEFA Champions League different stages' draws using python
 
-This program asks the user for the winner of the UCL group followed directly by its nationality, then asks for the runner of the same group followed directly by its nationality.
-This is repeated for every group respectively.
-Since the eight groups are named from A to H, the winners are of the 1st place, and the runners are of the second place, then the input will be as follows:
-***A1 A1N A2 A2N B1 B1N B2 B2N C1 ...***
-#### **Note that the inputs are separated by spaces**
-Which means that names such as Manchester United must be written as **Manchester-United** or **MU** for example.
+This program can simulate the draws of three stages in the Champions League:
+* Group stage ***-not finished yet-***
+* Round of 16
+* Finals **(Quarter finals and beyond)** ***-not finished yet-***
+It also asks the user whether they want to repeat the process by hitting enter
 
-## How the draw works
-Each winner is paired with a runner, where the following rules should apply:
+## Group Stage Draw
+### How the draw works
+#### **Rules**
+#### **Pairing Process**
+
+
+### How the program works
+#### **Input**
+#### **Pairing Process**
+
+## Round of 16 Draw
+### How the draw works
+#### **Rules**
+Each group winner is paired with a group runner, where the following rules should apply:
 * The two teams should be of different nationality
 * The two teams should be of different groups
-
+#### **Pairing Process**
 The draw is performed by getting a pot of the runners and randomly choosing a runner form the pot.
 Then a pot of the eligible winners that specific runner is made and winner is chosen also randomly.
 If a runner in the pot has only one eligible winner, they are paired immediately.
-###### *The max number of teams from the same nation is five*
-###### **The winner is written last in the pair as they host the 2nd leg at home**
+*The max number of teams from the same nation is five*
+**The winner is written last in the pair as they host the 2nd leg at home**
 
-## How the program works
+### How the program works
+#### **Input**
+The program asks the user for the winner of the UCL group followed directly by its nationality, then asks for the runner of the same group followed directly by its nationality.
+This is repeated for every group respectively.
+Since the eight groups are named from A to H, the winners are of the 1st place, and the runners are of the second place, then the input will be as follows:
+***A1 A1N A2 A2N B1 B1N B2 B2N C1 ...***
+**Note that the inputs are separated by spaces**
+Which means that names such as Manchester United must be written as **Manchester-United** or **MU** for example.
 We take inputs from user using input function, for multiple inputs we use the split function.
 Then we make a dictionary of winners, where the names are keys and the nations as values, we do the same for runners.
 We then make two list of **items** of the two dictionaries respectively, where there is a list for winners and another for runners.
@@ -33,3 +51,13 @@ This can also happen with less than six winners, eg. five winners with four of t
 If the special case happens, pair the two teams, remove them from their respective pots and repeat the pairing process.
 If the special case does not happen, we choose the runner randomly, make a list of the eligible winners and choose a winner from that list, pair the two teams, remove them from their respective pots and repeat the pairing process.
 The process ends when the runners Pot is empty
+
+## Finals Draw
+### How the draw works
+#### **Rules**
+#### **Pairing Process**
+
+
+### How the program works
+#### **Input**
+#### **Pairing Process**
