@@ -31,7 +31,7 @@ If a runner in the pot has only one eligible winner, they are paired immediately
 
 *The max number of teams from the same nation is five.*
 <br>
-**The winner is written last in the pair as they host the 2nd leg at home**
+**The winner is written last in the pair as they host the 2nd leg at home.**
 
 ### How the program works
 #### **Input**
