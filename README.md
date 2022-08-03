@@ -35,15 +35,26 @@ If a runner in the pot has only one eligible winner, they are paired immediately
 The program asks the user for the winner of the UCL group followed directly by its nationality, then asks for the runner of the same group followed directly by its nationality.
 This is repeated for every group respectively.
 Since the eight groups are named from A to H, the winners are of the 1st place, and the runners are of the second place, then the input will be as follows:
-***A1 A1N A2 A2N B1 B1N B2 B2N C1 ...***
-**Note that the inputs are separated by spaces**
-Which means that names such as Manchester United must be written as **Manchester-United** or **MU** for example.
-We take inputs from user using input function, for multiple inputs we use the split function.
-Then we make a dictionary of winners, where the names are keys and the nations as values, we do the same for runners.
-We then make two list of **items** of the two dictionaries respectively, where there is a list for winners and another for runners.
+```
+A1 - A1N
+A2 - A2N
+B1 - B1N
+B2 - B2N
+...
+```
+**Note that the inputs are separated by hypens and spaces " - "**
+Which means that names such as Manchester United of England must be written as **Manchester United - England** or **MU - ENG** for example.
+We take inputs from user using input function, for multiple inputs we use the split method, with sep argument of value " - ".
+Then we make a list of winners, with nested lists of names and nations of each team, we do the same for runners.
 Then we copy the two lists of items into editable lists of winners and runners called pots, where both will  decrease with every pairing.
-#### **eligibleWinners(runner, winners)**
-A function for making a list of eligible winners for a certain runner and append them in a pot of eligible winners by applying the rules above.
+#### **eligibleWinners(runner)**
+A function for making a list of winners from ***winnerPot*** list, which are eligible for a certain runner and append them in a pot of eligible winners, taking the rules mentioned above into consideration.
+
+    Parameters:
+        runner (list): A list of of two elements, the first being the name of the runner, the second being its nation. Represents the runner in question.
+
+    Returns:
+        eligibleWinnersPot (list): a list of lists, each nested list contains two elements, winner name and nation.
 #### **Special Case**
 Since that the max number of teams from the same nation is five, there is a special case where there are six winners, a runner team would find that four of the six winners are of the same of that runner's nation, and the fifth winner is of the same group oof the runner, then the sixth winner is paired automatically with that runner.
 This can also happen with less than six winners, eg. five winners with four of them of the same nation of the spicific runner, or three of the same nation and one of the same group of the runner.

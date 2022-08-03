@@ -11,23 +11,23 @@ while True:
         pass
     # Code for round of 16 draw
     elif draw == '2':
-        # Input must be separated as follows: Team-Name Nationality
-        A1, A1N = input("A1 & nation, A2 & nation, B1 & nation, etc :\n").split()
-        A2, A2N = input().split()
-        B1, B1N = input().split()
-        B2, B2N = input().split()
-        C1, C1N = input().split()
-        C2, C2N = input().split()
-        D1, D1N = input().split()
-        D2, D2N = input().split()
-        E1, E1N = input().split()
-        E2, E2N = input().split()
-        F1, F1N = input().split()
-        F2, F2N = input().split()
-        G1, G1N = input().split()
-        G2, G2N = input().split()
-        H1, H1N = input().split()
-        H2, H2N = input().split()
+        # Input must be separated as follows: Team Name - Nationality
+        A1, A1N = input("A1 & nation, A2 & nation, B1 & nation, etc :\n").split(sep = " - ")
+        A2, A2N = input().split(sep = " - ")
+        B1, B1N = input().split(sep = " - ")
+        B2, B2N = input().split(sep = " - ")
+        C1, C1N = input().split(sep = " - ")
+        C2, C2N = input().split(sep = " - ")
+        D1, D1N = input().split(sep = " - ")
+        D2, D2N = input().split(sep = " - ")
+        E1, E1N = input().split(sep = " - ")
+        E2, E2N = input().split(sep = " - ")
+        F1, F1N = input().split(sep = " - ")
+        F2, F2N = input().split(sep = " - ")
+        G1, G1N = input().split(sep = " - ")
+        G2, G2N = input().split(sep = " - ")
+        H1, H1N = input().split(sep = " - ")
+        H2, H2N = input().split(sep = " - ")
         # Lists for group winners and runner ups, with nested lists of names and nationalities of each team
         winnerList = [[A1, A1N], [B1, B1N], [C1, C1N], [D1, D1N], [E1, E1N], [F1, F1N], [G1, G1N], [H1, H1N]]
         runnerList = [[A2, A2N], [B2, B2N], [C2, C2N], [D2, D2N], [E2, E2N], [F2, F2N], [G2, G2N], [H2, H2N]]
@@ -44,7 +44,7 @@ while True:
 
         def eligibleWinners(runner):
             '''
-            A function for making a list of eligible winners for a certain runner and append them in a pot of eligible winners, where each eligible winner must be:
+            A function for making a list of winners from winnerPot list, which are eligible for a certain runner and append them in a pot of eligible winners, where each eligible winner must be:
                 1. Of a different nation from the runner.
                 2. From a different group from the runner.
 
@@ -93,27 +93,29 @@ while True:
 
         # 2021-2022 UCL season winners and runners
         '''
-Manchester-City     England
-Paris-Saint-Germain France
-Liverpool           England
-Atlético-Madrid     Spain
-Ajax                The-Netherlands
-Sporting-CP         Portugal
-Real-Madrid         Spain
-Inter-Milan         Italy
-Bayern-Munich       Germany
-Benfica             Portugal
-Manchester-United   England
-Villarreal          Spain
-Lille               France
-Red-Bull-Salzburg   Austria
-Juventus            Italy
-Chelsea             England
+Manchester City - England
+Paris Saint Germain - France
+Liverpool - England
+Atlético Madrid - Spain
+Ajax - The Netherlands
+Sporting CP - Portugal
+Real Madrid - Spain
+Inter Milan - Italy
+Bayern Munich - Germany
+Benfica - Portugal
+Manchester United - England
+Villarreal - Spain
+Lille - France
+Red Bull Salzburg - Austria
+Juventus - Italy
+Chelsea - England
         '''
     # Code for finals draw
     # TODO: complete the case
     elif draw == '3':
-        pass
+        # Input must be separated as follows: Team-Name Nationality
+        team1 = input("Team 1 & nation, Team 2 & nation, etc:")
+        print(team1)
     # If the user inputs a letter, or inputs a number other than 1, 2 or 3
     else:
         print("Please choose a number between 1 to 3")
