@@ -1,4 +1,5 @@
 import random
+from xml.dom.minidom import Notation
 
 print("Which draw would you like to simulate?")
 while True:
@@ -27,34 +28,40 @@ while True:
         G2, G2N = input().split()
         H1, H1N = input().split()
         H2, H2N = input().split()
-        # Dictionaries for group winners and runner ups, with names as keys and nationalities as values
-        winnerDict = {A1: A1N, B1: B1N, C1: C1N, D1: D1N, E1: E1N, F1: F1N, G1: G1N, H1: H1N}
-        runnerDict = {A2: A2N, B2: B2N, C2: C2N, D2: D2N, E2: E2N, F2: F2N, G2: G2N, H2: H2N}
+        # Lists for group winners and runner ups, with nested lists of names and nationalities of each team
+        winnerList = [[A1, A1N], [B1, B1N], [C1, C1N], [D1, D1N], [E1, E1N], [F1, F1N], [G1, G1N], [H1, H1N]]
+        runnerList = [[A2, A2N], [B2, B2N], [C2, C2N], [D2, D2N], [E2, E2N], [F2, F2N], [G2, G2N], [H2, H2N]]
 
-        print("group winners:" + "\n" + str(winnerDict))
-        print("group runners:" + "\n" + str(runnerDict))
-        # Turning the dictionaries into lists for indexing while retaining both keys and values
-        # Notice that I needed to alter list of runnerDict twice so I declared two variables
-        winnerList = list(winnerDict.items())
-        runnerList = list(runnerDict.items())
+        print("group winners:" + "\n" + str(winnerList))
+        print("group runners:" + "\n" + str(runnerList))
+        # Pots are lists of the teams that are yet to be paired
         winnerPot = winnerList.copy()
         runnerPot = runnerList.copy()
-        # Since each item in the lists is a list of team names and nations respectively, we save the index of the name in name variable, and index of the nation in nation variable, to ease the readability of the code
+        # To ease the readability of the , we will save the index of the team names in a variable called name, and the same for the team nations
+        # TODO: make a variable for group name
         name = 0
         nation = 1
-        # A function for making a list of eligible winners for a certain runner and append them in a pot of eligible winners
-        def eligibleWinners(runner, winners):
-            for winner in winners:
-                # The rule for an eligible winner are
-                    # 1. Has a different nation from the runner
-                    # 2. Is from a different group from the runner
+
+        def eligibleWinners(runner):
+            '''
+            A function for making a list of eligible winners for a certain runner and append them in a pot of eligible winners, where each eligible winner must be:
+                1. Of a different nation from the runner.
+                2. From a different group from the runner.
+
+                Parameters:
+                    runner (list): A list of of two elements, the first being the name of the runner, the second being its nation. Represents the runner in question.
+
+                Returns:
+                    eligibleWinnersPot (list): a list of lists, each nested list contains two elements, winner name and nation.
+            '''
+            eligibleWinnersPot = []
+            for winner in winnerPot:
                 if runner[nation] != winner[nation] and runnerList.index(runner) != winnerList.index(winner):
                     eligibleWinnersPot.append(winner)
+            return eligibleWinnersPot
 
         match = 1
         while len(runnerPot) > 0:
-            # Initialize the pot of eligible winners every loop iteration, as we are yet to choose a runner
-            eligibleWinnersPot = []
             # The max number of teams from the same nation is five
             # There is a special case where there are six winners, a runner team would find that four of the six winners are of the same of that runner's nation, and the fifth winner is of the same group oof the runner, then the sixth winner is paired automatically with that runner
             # This can also happen with less than six winners, eg. five winners with four of them of the same nation of the spicific runner, or three of the same nation and one of the same group of the runner
@@ -62,13 +69,11 @@ while True:
                 # That special case is saved in the specialCase variable
                 specialCase = False
                 for runner in runnerPot:
-                    # Initialize the pot of eligible winners every loop iteration, as we change the runner every iteration
-                    eligibleWinnersPot = []
-                    eligibleWinners(runner, winnerPot)
-                    # If the special case happens, print the match, remove the teams from their respective pots and break out of the inner loop
-                    if len(eligibleWinnersPot) == 1:
-                        winner = eligibleWinnersPot[0]
-                        print("Match #" + str(match) +": " + runner[name] +" (" + runner[nation] + ") V " + winner[name] +" (" + winner[nation] + ")")
+                    eligibleWinners(runner)
+                    # If the special case happens, print the match (team name, nation and group) with proper spacing, remove the teams from their respective pots and break out of the inner loop
+                    if len(eligibleWinners(runner)) == 1:
+                        winner = eligibleWinners(runner)[0]
+                        print("Match #" + str(match) +": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
                         runnerPot.remove(runner)
                         winnerPot.remove(winner)
                         match += 1
@@ -77,34 +82,33 @@ while True:
                 # If the special case happens, skip the outer loop iteration
                 if specialCase == True:
                     continue
-            # If the special case does not happen, choose the runner randomly, make a list of the eligible winners and choose a winner from that list
+            # If the special case does not happen, choose the runner randomly, pair it with a random winner from the eligible winners
             runner = random.choice(runnerPot)
-            eligibleWinners(runner, winnerPot)
-            winner = random.choice(eligibleWinnersPot)
-            # Print the match, remove the teams from their respective pots and break out of the inner loop
-            print("Match #" + str(match) +": " + runner[name] +" (" + runner[nation] + ") V " + winner[name] +" (" + winner[nation] + ")")
+            winner = random.choice(eligibleWinners(runner))
+            # Print the match (team name, nation and group) with proper spacing and remove the teams from their respective pots
+            print("Match #" + str(match) +": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
             runnerPot.remove(runner)
             winnerPot.remove(winner)
             match += 1
 
         # 2021-2022 UCL season winners and runners
         '''
-Manchester-City England
+Manchester-City     England
 Paris-Saint-Germain France
-Liverpool England
-Atlético-Madrid Spain
-Ajax Holland
-Sporting-CP Portugal
-Real-Madrid Spain
-Inter-Milan Italy
-Bayern-Munich Germany
-Benfica Portugal
-Manchester-United England
-Villarreal Spain
-Lille France
-Red-Bull-Salzburg Austria
-Juventus Italy
-Chelsea England
+Liverpool           England
+Atlético-Madrid     Spain
+Ajax                The-Netherlands
+Sporting-CP         Portugal
+Real-Madrid         Spain
+Inter-Milan         Italy
+Bayern-Munich       Germany
+Benfica             Portugal
+Manchester-United   England
+Villarreal          Spain
+Lille               France
+Red-Bull-Salzburg   Austria
+Juventus            Italy
+Chelsea             England
         '''
     # Code for finals draw
     # TODO: complete the case
