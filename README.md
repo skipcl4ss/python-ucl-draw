@@ -5,7 +5,8 @@ This program can simulate the draws of three stages in the Champions League:
 * Group stage ***-not finished yet-***
 * Round of 16
 * Finals **(Quarter finals and beyond)** ***-not finished yet-***
-It also asks the user whether they want to repeat the process by hitting enter
+
+It also asks the user whether they want to repeat the process by hitting enter.
 
 ## Group Stage Draw
 ### How the draw works
@@ -27,6 +28,7 @@ Each group winner is paired with a group runner, where the following rules shoul
 The draw is performed by getting a pot of the runners and randomly choosing a runner form the pot.
 Then a pot of the eligible winners that specific runner is made and winner is chosen also randomly.
 If a runner in the pot has only one eligible winner, they are paired immediately.
+
 *The max number of teams from the same nation is five*
 **The winner is written last in the pair as they host the 2nd leg at home**
 
@@ -61,7 +63,7 @@ This can also happen with less than six winners, eg. five winners with four of t
 #### **Pairing Process**
 If the special case happens, pair the two teams, remove them from their respective pots and repeat the pairing process.
 If the special case does not happen, we choose the runner randomly, make a list of the eligible winners and choose a winner from that list, pair the two teams, remove them from their respective pots and repeat the pairing process.
-The process ends when the runners Pot is empty
+The process ends when the runners Pot is empty.
 
 ## Finals Draw
 ### How the draw works
