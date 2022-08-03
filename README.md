@@ -29,7 +29,8 @@ The draw is performed by getting a pot of the runners and randomly choosing a ru
 Then a pot of the eligible winners that specific runner is made and winner is chosen also randomly.
 If a runner in the pot has only one eligible winner, they are paired immediately.
 
-*The max number of teams from the same nation is five*
+*The max number of teams from the same nation is five.*
+<br>
 **The winner is written last in the pair as they host the 2nd leg at home**
 
 ### How the program works

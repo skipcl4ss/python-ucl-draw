@@ -45,8 +45,8 @@ while True:
         def eligibleWinners(runner):
             '''
             A function for making a list of winners from winnerPot list, which are eligible for a certain runner and append them in a pot of eligible winners, where each eligible winner must be:
-                1. Of a different nation from the runner.
-                2. From a different group from the runner.
+                1. Of a different nation from the runner
+                2. From a different group from the runner
 
                 Parameters:
                     runner (list): A list of of two elements, the first being the name of the runner, the second being its nation. Represents the runner in question.
