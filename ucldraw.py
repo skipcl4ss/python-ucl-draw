@@ -4,7 +4,7 @@ from xml.dom.minidom import Notation
 print("Which draw would you like to simulate?")
 while True:
     # Save the type of draw in a variable
-    draw = input("1) Group stage\n2) Round of 16\n3) Finals (Quarter finals and beyond)\n")
+    draw = input("1) Group stage\n2) Round of 16\n3) Finals (Quarter-finals and beyond)\n")
     # Code for group stage draw
     # TODO: complete the case
     if draw == '1':
@@ -31,9 +31,6 @@ while True:
         # Lists for group winners and runner ups, with nested lists of names and nationalities of each team
         winnerList = [[A1, A1N], [B1, B1N], [C1, C1N], [D1, D1N], [E1, E1N], [F1, F1N], [G1, G1N], [H1, H1N]]
         runnerList = [[A2, A2N], [B2, B2N], [C2, C2N], [D2, D2N], [E2, E2N], [F2, F2N], [G2, G2N], [H2, H2N]]
-
-        print("group winners:" + "\n" + str(winnerList))
-        print("group runners:" + "\n" + str(runnerList))
         # Pots are lists of the teams that are yet to be paired
         winnerPot = winnerList.copy()
         runnerPot = runnerList.copy()
@@ -44,9 +41,11 @@ while True:
 
         def eligibleWinners(runner):
             '''
-            A function for making a list of winners from winnerPot list, which are eligible for a certain runner and append them in a pot of eligible winners, where each eligible winner must be:
-                1. Of a different nation from the runner
-                2. From a different group from the runner
+            A function for making a list of eligible opponents for a certain runner from the winnersPot list,and append them in a pot of eligible winners, called eligibleWinnersPot.
+            Each eligible opponent must be:
+                1. A winner team (seeded teams V unseeded teams rule)
+                2. Of a different nation from the runner (country protection rule)
+                3. From a different group from the runner (group protection rule)
 
                 Parameters:
                     runner (list): A list of of two elements, the first being the name of the runner, the second being its nation. Represents the runner in question.
@@ -73,7 +72,7 @@ while True:
                     # If the special case happens, print the match (team name, nation and group) with proper spacing, remove the teams from their respective pots and break out of the inner loop
                     if len(eligibleWinners(runner)) == 1:
                         winner = eligibleWinners(runner)[0]
-                        print("Match #" + str(match) +": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
+                        print("Match #" + str(match) + ": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
                         runnerPot.remove(runner)
                         winnerPot.remove(winner)
                         match += 1
@@ -86,12 +85,12 @@ while True:
             runner = random.choice(runnerPot)
             winner = random.choice(eligibleWinners(runner))
             # Print the match (team name, nation and group) with proper spacing and remove the teams from their respective pots
-            print("Match #" + str(match) +": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
+            print("Match #" + str(match) + ": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
             runnerPot.remove(runner)
             winnerPot.remove(winner)
             match += 1
 
-        # 2021-2022 UCL season winners and runners
+        # 2021-2022 UCL season group winners and runners
         '''
 Manchester City - England
 Paris Saint Germain - France
@@ -101,7 +100,7 @@ Ajax - The Netherlands
 Sporting CP - Portugal
 Real Madrid - Spain
 Inter Milan - Italy
-Bayern Munich - Germany
+Bayern München - Germany
 Benfica - Portugal
 Manchester United - England
 Villarreal - Spain
@@ -111,17 +110,72 @@ Juventus - Italy
 Chelsea - England
         '''
     # Code for finals draw
-    # TODO: complete the case
     elif draw == '3':
-        # Input must be separated as follows: Team-Name Nationality
-        team1 = input("Team 1 & nation, Team 2 & nation, etc:")
-        print(team1)
+        # Input must be separated as follows: Team Name - Nationality
+        T1 = input("Team 1, Team 2, etc:\n")
+        T2 = input()
+        T3 = input()
+        T4 = input()
+        T5 = input()
+        T6 = input()
+        T7 = input()
+        T8 = input()
+        # Make a list of the teams, this list will decrease with each pairing
+        teamPot = [T1, T2, T3, T4, T5, T6, T7, T8]
+        # Choose randomly two pairs from the list, print the match with proper spacing and remove the teams from the teamPot list
+        # This time, there are no rules. This is completely random draw
+        match = 1
+        while len(teamPot) > 0:
+            home = random.choice(teamPot)
+            teamPot.remove(home)
+            away = random.choice(teamPot)
+            teamPot.remove(away)
+            print("Quarter-final #" + str(match) + ": " + home + " " * (20 - len(home)) + "V" + " " * (20 - len(away)) + away)
+            match += 1
+        # Print the semi-finals matches, where names are anonymous
+        semisPot = [1, 2, 3, 4]
+        match = 1
+        while len(semisPot) > 0:
+            home = random.choice(semisPot)
+            semisPot.remove(home)
+            away = random.choice(semisPot)
+            semisPot.remove(away)
+            print("Semi-final #" + str(match) + ": Quarter-final #" + str(home) + " winner V " + "Quarter-final #" + str(away) + " winner")
+            match += 1
+        # Print the finals match, where names are anonymous. This is done for operational reasons
+        home = random.randrange(1, 3)
+        if home == 1:
+            away = 2
+            print("Final" + ": Semi-final #" + str(home) + " winner V " + "Semi-final #" + str(away) + " winner")
+        else:
+            away = 1
+            print("Final" + ": Semi-final #" + str(home) + " winner V " + "Semi-final #" + str(away) + " winner")
+        # 2021-2022 UCL season Quarter-finals qualifiers
+        '''
+Manchester City
+Liverpool
+Atlético Madrid
+Real Madrid
+Bayern München
+Benfica
+Villarreal
+Chelsea
+        '''
     # If the user inputs a letter, or inputs a number other than 1, 2 or 3
     else:
         print("Please choose a number between 1 to 3")
         continue
     # A way to exit the program
-    if input("Press enter to repeat the program, or anywhere else to exit\n") != '':
+    print("Do you want to continue the program?")
+    while True:
+        answer = input("[c]ontinue\n[q]uit\n")
+        if answer == 'c':
+            print("Which draw would you like to simulate?")
+            break
+        elif answer == 'q':
+            quit = True
+            break
+        else:
+            print("Please choose a valid answer")
+    if quit == True:
         break
-    else:
-        print("Which draw would you like to simulate?")
