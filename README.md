@@ -6,7 +6,7 @@ This program can simulate the draws of three stages in the Champions League:
 * Round of 16.
 * Finals **(Quarter finals and beyond)**.
 
-It also asks the user whether they want to repeat the process by hitting enter.
+It also asks the user whether they want to repeat the process by hitting the letter c, or quit the program using the letter q.
 
 ## Packages used
 ### random
@@ -58,6 +58,7 @@ B2 - B2N
 **Note that teams and nations are separated by hyphens and spaces " - ", while team and nation pairs are separated by newlines**
 Which means that a pair such as Manchester United of England must be written as **Manchester United - England** or **MU - ENG** for example.
 While two pairs such as Real Madrid of Spain and Inter Milan of Italy must be written as<br>**Real Madrid - Spain<br>Inter Milan - Italy**<br>or<br>**RMA - SPA<br>IM - ITA**<br>for example.
+
 We take inputs from user using input function, for multiple inputs we use the split method, with **sep** argument of value " - ".
 Then we make a list of winners, with nested lists of names and nations of each team, we do the same for runners.
 Then we copy the two lists of items into editable lists of winners and runners called pots, where both will  decrease with every pairing.
