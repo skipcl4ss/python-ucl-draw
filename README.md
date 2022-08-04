@@ -4,7 +4,7 @@
 This program can simulate the draws of three stages in the Champions League:
 * Group stage ***-not finished yet-***.
 * Round of 16.
-* Finals **(Quarter finals and beyond)**.
+* Finals **(quarter-finals and beyond)**.
 
 It also asks the user whether they want to repeat the process by hitting the letter c, or quit the program using the letter q.
 
