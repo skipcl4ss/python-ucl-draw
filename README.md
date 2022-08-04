@@ -57,8 +57,7 @@ B2 - B2N
 ```
 **Note that teams and nations are separated by hyphens and spaces " - ", while team and nation pairs are separated by newlines**
 Which means that a pair such as Manchester United of England must be written as **Manchester United - England** or **MU - ENG** for example.
-While two pairs such as Real Madrid of Spain and Inter Milan of Italy must be written as
-**Real Madrid - Spain<br>Inter Milan - Italy** or **RMA - SPA<br>IM - ITA** for example.
+While two pairs such as Real Madrid of Spain and Inter Milan of Italy must be written as<br>**Real Madrid - Spain<br>Inter Milan - Italy**<br>or<br>**RMA - SPA<br>IM - ITA**<br>for example.
 We take inputs from user using input function, for multiple inputs we use the split method, with **sep** argument of value " - ".
 Then we make a list of winners, with nested lists of names and nations of each team, we do the same for runners.
 Then we copy the two lists of items into editable lists of winners and runners called pots, where both will  decrease with every pairing.
@@ -100,14 +99,15 @@ All the teams are put in one pot, every two consecutive chosen teams pair a matc
 Since there is no country protection, the user is not asked for the teams countries, as they are not needed.
 The program asks for eight teams, each separated by a newline, where the input will be as follows:
 ```
-A1 - A1N
-A2 - A2N
-B1 - B1N
-B2 - B2N
+T1
+T2
+T3
+T4
 ...
 ```
 #### **Pairing Process**
 **A counter called *match* is used in the process, to give each match done a proper number.**
+
 *The team written first in a pair will have the first leg played at home, except in the final match, where they will have the **home** title only. This is, as mentioned above, for operational reasons*
 
 ##### ***Quarter-finals-draw***
