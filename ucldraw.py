@@ -1,5 +1,4 @@
 import random
-from xml.dom.minidom import Notation
 
 print("Which draw would you like to simulate?")
 while True:
@@ -8,7 +7,105 @@ while True:
     # Code for group stage draw
     # TODO: complete the case
     if draw == '1':
-        pass
+        Pot11, Pot11N = input("Pot 1 teams & nations:\n").split(sep = " - ")
+        Pot12, Pot12N = input().split(sep = " - ")
+        Pot13, Pot13N = input().split(sep = " - ")
+        Pot14, Pot14N = input().split(sep = " - ")
+        Pot15, Pot15N = input().split(sep = " - ")
+        Pot16, Pot16N = input().split(sep = " - ")
+        Pot17, Pot17N = input().split(sep = " - ")
+        Pot18, Pot18N = input().split(sep = " - ")
+        Pot21, Pot21N = input("Pot 2 teams & nations:\n").split(sep = " - ")
+        Pot22, Pot22N = input().split(sep = " - ")
+        Pot23, Pot23N = input().split(sep = " - ")
+        Pot24, Pot24N = input().split(sep = " - ")
+        Pot25, Pot25N = input().split(sep = " - ")
+        Pot26, Pot26N = input().split(sep = " - ")
+        Pot27, Pot27N = input().split(sep = " - ")
+        Pot28, Pot28N = input().split(sep = " - ")
+        Pot31, Pot31N = input("Pot 3 teams & nations:\n").split(sep = " - ")
+        Pot32, Pot32N = input().split(sep = " - ")
+        Pot33, Pot33N = input().split(sep = " - ")
+        Pot34, Pot34N = input().split(sep = " - ")
+        Pot35, Pot35N = input().split(sep = " - ")
+        Pot36, Pot36N = input().split(sep = " - ")
+        Pot37, Pot37N = input().split(sep = " - ")
+        Pot38, Pot38N = input().split(sep = " - ")
+        Pot41, Pot41N = input("Pot 4 teams & nations:\n").split(sep = " - ")
+        Pot42, Pot42N = input().split(sep = " - ")
+        Pot43, Pot43N = input().split(sep = " - ")
+        Pot44, Pot44N = input().split(sep = " - ")
+        Pot45, Pot45N = input().split(sep = " - ")
+        Pot46, Pot46N = input().split(sep = " - ")
+        Pot47, Pot47N = input().split(sep = " - ")
+        Pot48, Pot48N = input().split(sep = " - ")
+
+        Pot1 = {Pot11: Pot11N, Pot12: Pot12N, Pot13: Pot13N, Pot14: Pot14N, Pot15: Pot15N, Pot16: Pot16N, Pot17: Pot17N, Pot18: Pot18N}
+        Pot2 = {Pot21: Pot21N, Pot22: Pot22N, Pot23: Pot23N, Pot24: Pot24N, Pot25: Pot25N, Pot26: Pot26N, Pot27: Pot27N, Pot28: Pot28N}
+        Pot3 = {Pot31: Pot31N, Pot32: Pot32N, Pot33: Pot33N, Pot34: Pot34N, Pot35: Pot35N, Pot36: Pot36N, Pot37: Pot37N, Pot38: Pot38N}
+        Pot4 = {Pot41: Pot41N, Pot42: Pot42N, Pot43: Pot43N, Pot44: Pot44N, Pot45: Pot45N, Pot46: Pot46N, Pot47: Pot47N, Pot48: Pot48N}
+
+        groupA = ['A']; groupB = ['B']; groupC = ['C']; groupD = ['D']; groupE = ['E']; groupF = ['F']; groupG = ['G']; groupH = ['H']
+        groups = [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]
+        redGroups = [groupA, groupB, groupC, groupD]
+        blueGroups = [groupE, groupF, groupG, groupH]
+
+        name = 0
+        nation = 1
+
+        group = ord('A')
+        while len(Pot1) > 0:
+            team = random.choice(list(Pot1.items()))
+            print(team)
+            groups[groups.index([chr(group)])].append(team)
+            print(groups)
+            Pot1.pop(team[name])
+            print(Pot1)
+            group += 1
+            print(chr(group))
+
+        for grp in groups:
+            for teams in grp:
+                if grp.index(teams) != 0 and groups.index(grp) != 3:
+                    print(teams[name] + " (" + teams[nation] + ")" + " " * (28 - len(teams[name]) - len(teams[nation])), end = '')
+                if grp.index(teams) != 0 and groups.index(grp) == 3:
+                    print(teams[name] + " (" + teams[nation] + ")")
+        print()
+        # 2021-2022 UCL season group stage teams
+        '''
+Chelsea - England
+Villarreal - Spain
+Atlético Madrid - Spain
+Manchester City - England
+Bayern München - Germany
+Inter Milan - Italy
+Lille - France
+Sporting CP - Portugal
+Real Madrid - Spain
+Barcelona - Spain
+Juventus - Italy
+Manchester United - England
+Paris Saint-Germain - France
+Liverpool - England
+Sevilla - Spain
+Borussia Dortmund - Germany
+Porto - Portugal
+Ajax - The Netherlands
+Shakhtar Donetsk - Ukraine
+RB Leipzig - Germany
+Red Bull Salzburg - Austria
+Benfica - Portugal
+Atalanta - Italy
+Zenit Saint Petersburg - Russia
+Beşiktaş - Turkey
+Dynamo Kyiv - Ukraine
+Club Brugge - Belgium
+Young Boys - Switzerland
+Milan - Italy
+Malmö FF - Sweden
+VfL Wolfsburg - Germany
+Sheriff Tiraspol - Moldova
+        '''
     # Code for round of 16 draw
     elif draw == '2':
         # Input must be separated as follows: Team Name - Nationality
@@ -35,7 +132,6 @@ while True:
         winnerPot = winnerList.copy()
         runnerPot = runnerList.copy()
         # To ease the readability of the , we will save the index of the team names in a variable called name, and the same for the team nations
-        # TODO: make a variable for group name
         name = 0
         nation = 1
 
@@ -89,11 +185,11 @@ while True:
             runnerPot.remove(runner)
             winnerPot.remove(winner)
             match += 1
-
+        print() # Make a new line
         # 2021-2022 UCL season group winners and runners
         '''
 Manchester City - England
-Paris Saint Germain - France
+Paris Saint-Germain - France
 Liverpool - England
 Atlético Madrid - Spain
 Ajax - The Netherlands
@@ -132,6 +228,7 @@ Chelsea - England
             teamPot.remove(away)
             print("Quarter-final #" + str(match) + ": " + home + " " * (20 - len(home)) + "V" + " " * (20 - len(away)) + away)
             match += 1
+        print() # Make a new line
         # Print the semi-finals matches, where names are anonymous
         semisPot = [1, 2, 3, 4]
         match = 1
@@ -142,6 +239,7 @@ Chelsea - England
             semisPot.remove(away)
             print("Semi-final #" + str(match) + ": Quarter-final #" + str(home) + " winner V " + "Quarter-final #" + str(away) + " winner")
             match += 1
+        print() # Make a new line
         # Print the finals match, where names are anonymous. This is done for operational reasons
         home = random.randrange(1, 3)
         if home == 1:
@@ -150,6 +248,7 @@ Chelsea - England
         else:
             away = 1
             print("Final" + ": Semi-final #" + str(home) + " winner V " + "Semi-final #" + str(away) + " winner")
+        print() # Make a new line
         # 2021-2022 UCL season Quarter-finals qualifiers
         '''
 Manchester City
