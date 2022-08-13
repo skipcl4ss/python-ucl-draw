@@ -53,24 +53,53 @@ while True:
         name = 0
         nation = 1
 
-        group = ord('A')
+        def firstEmptyGroup(grps):
+            for group in grps:
+                if len(group) == 1:
+                    return group
+        # TODO: there is a case where we may find that the red groups were filled, and we are left with two teams of the same nation in the blue teams
+        def TVpairings(team):
+            redCounter = 0
+            for group in redGroups:
+                for teams in group:
+                    if group.index(teams) == 0:
+                        continue
+                    elif team[nation] == teams[nation]:
+                        redCounter += 1
+
+            blueCounter = 0
+            for group in blueGroups:
+                for teams in group:
+                    if group.index(teams) == 0:
+                        continue
+                    elif team[nation] == teams[nation]:
+                        blueCounter += 1
+
+            if redCounter > blueCounter:
+                firstEmptyGroup(blueGroups).append(team)
+            elif blueCounter > redCounter:
+                firstEmptyGroup(redGroups).append(team)
+            else:
+                firstEmptyGroup(groups).append(team)
+
         while len(Pot1) > 0:
             team = random.choice(list(Pot1.items()))
             print(team)
-            groups[groups.index([chr(group)])].append(team)
+            TVpairings(team)
             print(groups)
             Pot1.pop(team[name])
             print(Pot1)
-            group += 1
-            print(chr(group))
 
-        for grp in groups:
-            for teams in grp:
-                if grp.index(teams) != 0 and groups.index(grp) != 3:
+        for group in groups:
+            for teams in group:
+                if group.index(teams) == 0:
+                    continue
+                elif groups.index(group) != 3 and groups.index(group) != 7:
                     print(teams[name] + " (" + teams[nation] + ")" + " " * (28 - len(teams[name]) - len(teams[nation])), end = '')
-                if grp.index(teams) != 0 and groups.index(grp) == 3:
+                else:
                     print(teams[name] + " (" + teams[nation] + ")")
-        print()
+                    print()
+        # print()
         # 2021-2022 UCL season group stage teams
         '''
 Chelsea - England
