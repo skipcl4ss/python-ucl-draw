@@ -7,48 +7,47 @@ while True:
     # Code for group stage draw
     # TODO: complete the case
     if draw == '1':
-        Pot11, Pot11N = input("Pot 1 teams & nations:\n").split(sep = " - ")
-        Pot12, Pot12N = input().split(sep = " - ")
-        Pot13, Pot13N = input().split(sep = " - ")
-        Pot14, Pot14N = input().split(sep = " - ")
-        Pot15, Pot15N = input().split(sep = " - ")
-        Pot16, Pot16N = input().split(sep = " - ")
-        Pot17, Pot17N = input().split(sep = " - ")
-        Pot18, Pot18N = input().split(sep = " - ")
-        Pot21, Pot21N = input("Pot 2 teams & nations:\n").split(sep = " - ")
-        Pot22, Pot22N = input().split(sep = " - ")
-        Pot23, Pot23N = input().split(sep = " - ")
-        Pot24, Pot24N = input().split(sep = " - ")
-        Pot25, Pot25N = input().split(sep = " - ")
-        Pot26, Pot26N = input().split(sep = " - ")
-        Pot27, Pot27N = input().split(sep = " - ")
-        Pot28, Pot28N = input().split(sep = " - ")
-        Pot31, Pot31N = input("Pot 3 teams & nations:\n").split(sep = " - ")
-        Pot32, Pot32N = input().split(sep = " - ")
-        Pot33, Pot33N = input().split(sep = " - ")
-        Pot34, Pot34N = input().split(sep = " - ")
-        Pot35, Pot35N = input().split(sep = " - ")
-        Pot36, Pot36N = input().split(sep = " - ")
-        Pot37, Pot37N = input().split(sep = " - ")
-        Pot38, Pot38N = input().split(sep = " - ")
-        Pot41, Pot41N = input("Pot 4 teams & nations:\n").split(sep = " - ")
-        Pot42, Pot42N = input().split(sep = " - ")
-        Pot43, Pot43N = input().split(sep = " - ")
-        Pot44, Pot44N = input().split(sep = " - ")
-        Pot45, Pot45N = input().split(sep = " - ")
-        Pot46, Pot46N = input().split(sep = " - ")
-        Pot47, Pot47N = input().split(sep = " - ")
-        Pot48, Pot48N = input().split(sep = " - ")
+        PotOne1, PotOne1N = input("Pot 1 teams & nations:\n").split(sep = " - ")
+        PotOne2, PotOne2N = input().split(sep = " - ")
+        PotOne3, PotOne3N = input().split(sep = " - ")
+        PotOne4, PotOne4N = input().split(sep = " - ")
+        PotOne5, PotOne5N = input().split(sep = " - ")
+        PotOne6, PotOne6N = input().split(sep = " - ")
+        PotOne7, PotOne7N = input().split(sep = " - ")
+        PotOne8, PotOne8N = input().split(sep = " - ")
+        PotTwo1, PotTwo1N = input("Pot 2 teams & nations:\n").split(sep = " - ")
+        PotTwo2, PotTwo2N = input().split(sep = " - ")
+        PotTwo3, PotTwo3N = input().split(sep = " - ")
+        PotTwo4, PotTwo4N = input().split(sep = " - ")
+        PotTwo5, PotTwo5N = input().split(sep = " - ")
+        PotTwo6, PotTwo6N = input().split(sep = " - ")
+        PotTwo7, PotTwo7N = input().split(sep = " - ")
+        PotTwo8, PotTwo8N = input().split(sep = " - ")
+        PotThree1, PotThree1N = input("Pot 3 teams & nations:\n").split(sep = " - ")
+        PotThree2, PotThree2N = input().split(sep = " - ")
+        PotThree3, PotThree3N = input().split(sep = " - ")
+        PotThree4, PotThree4N = input().split(sep = " - ")
+        PotThree5, PotThree5N = input().split(sep = " - ")
+        PotThree6, PotThree6N = input().split(sep = " - ")
+        PotThree7, PotThree7N = input().split(sep = " - ")
+        PotThree8, PotThree8N = input().split(sep = " - ")
+        PotFour1, PotFour1N = input("Pot 4 teams & nations:\n").split(sep = " - ")
+        PotFour2, PotFour2N = input().split(sep = " - ")
+        PotFour3, PotFour3N = input().split(sep = " - ")
+        PotFour4, PotFour4N = input().split(sep = " - ")
+        PotFour5, PotFour5N = input().split(sep = " - ")
+        PotFour6, PotFour6N = input().split(sep = " - ")
+        PotFour7, PotFour7N = input().split(sep = " - ")
+        PotFour8, PotFour8N = input().split(sep = " - ")
 
-        Pot1 = {Pot11: Pot11N, Pot12: Pot12N, Pot13: Pot13N, Pot14: Pot14N, Pot15: Pot15N, Pot16: Pot16N, Pot17: Pot17N, Pot18: Pot18N}
-        Pot2 = {Pot21: Pot21N, Pot22: Pot22N, Pot23: Pot23N, Pot24: Pot24N, Pot25: Pot25N, Pot26: Pot26N, Pot27: Pot27N, Pot28: Pot28N}
-        Pot3 = {Pot31: Pot31N, Pot32: Pot32N, Pot33: Pot33N, Pot34: Pot34N, Pot35: Pot35N, Pot36: Pot36N, Pot37: Pot37N, Pot38: Pot38N}
-        Pot4 = {Pot41: Pot41N, Pot42: Pot42N, Pot43: Pot43N, Pot44: Pot44N, Pot45: Pot45N, Pot46: Pot46N, Pot47: Pot47N, Pot48: Pot48N}
+        PotOne = {PotOne1: PotOne1N, PotOne2: PotOne2N, PotOne3: PotOne3N, PotOne4: PotOne4N, PotOne5: PotOne5N, PotOne6: PotOne6N, PotOne7: PotOne7N, PotOne8: PotOne8N}
+        PotTwo = {PotTwo1: PotTwo1N, PotTwo2: PotTwo2N, PotTwo3: PotTwo3N, PotTwo4: PotTwo4N, PotTwo5: PotTwo5N, PotTwo6: PotTwo6N, PotTwo7: PotTwo7N, PotTwo8: PotTwo8N}
+        PotThree = {PotThree1: PotThree1N, PotThree2: PotThree2N, PotThree3: PotThree3N, PotThree4: PotThree4N, PotThree5: PotThree5N, PotThree6: PotThree6N, PotThree7: PotThree7N, PotThree8: PotThree8N}
+        PotFour = {PotFour1: PotFour1N, PotFour2: PotFour2N, PotFour3: PotFour3N, PotFour4: PotFour4N, PotFour5: PotFour5N, PotFour6: PotFour6N, PotFour7: PotFour7N, PotFour8: PotFour8N}
 
-        groupA = ['A']; groupB = ['B']; groupC = ['C']; groupD = ['D']; groupE = ['E']; groupF = ['F']; groupG = ['G']; groupH = ['H']
-        groups = [groupA, groupB, groupC, groupD, groupE, groupF, groupG, groupH]
-        redGroups = [groupA, groupB, groupC, groupD]
-        blueGroups = [groupE, groupF, groupG, groupH]
+        groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+        redGroups = groups[: 4]
+        blueGroups = groups[4: ]
 
         name = 0
         nation = 1
@@ -88,13 +87,13 @@ while True:
             else:
                 firstEmptyGroup(groups).append(team)
 
-        while len(Pot1) > 0:
-            team = random.choice(list(Pot1.items()))
+        while len(PotOne) > 0:
+            team = random.choice(list(PotOne.items()))
             print(team)
             addToGroup(team)
             print(groups)
-            Pot1.pop(team[name])
-            print(Pot1)
+            PotOne.pop(team[name])
+            print(PotOne)
 
         for group in groups:
             for teams in group:
@@ -143,7 +142,7 @@ Sheriff Tiraspol - Moldova
         '''
     # Code for round of 16 draw
     elif draw == '2':
-        # Input must be separated as follows: Team Name - Nationality
+        # Input must be separated as follows: Team Name - Nation
         A1, A1N = input("A1 & nation, A2 & nation, B1 & nation, etc :\n").split(sep = " - ")
         A2, A2N = input().split(sep = " - ")
         B1, B1N = input().split(sep = " - ")
@@ -160,7 +159,7 @@ Sheriff Tiraspol - Moldova
         G2, G2N = input().split(sep = " - ")
         H1, H1N = input().split(sep = " - ")
         H2, H2N = input().split(sep = " - ")
-        # Lists for group winners and runner ups, with nested lists of names and nationalities of each team
+        # Lists for group winners and runner ups, with nested lists of names and nations of each team
         winnerList = [[A1, A1N], [B1, B1N], [C1, C1N], [D1, D1N], [E1, E1N], [F1, F1N], [G1, G1N], [H1, H1N]]
         runnerList = [[A2, A2N], [B2, B2N], [C2, C2N], [D2, D2N], [E2, E2N], [F2, F2N], [G2, G2N], [H2, H2N]]
         # Pots are lists of the teams that are yet to be paired
@@ -242,19 +241,12 @@ Chelsea - England
         '''
     # Code for finals draw
     elif draw == '3':
-        # Input must be separated as follows: Team Name - Nationality
-        T1 = input("Team 1, Team 2, etc:\n")
-        T2 = input()
-        T3 = input()
-        T4 = input()
-        T5 = input()
-        T6 = input()
-        T7 = input()
-        T8 = input()
+        # Input must be separated as follows: Team Name
         # Make a list of the teams, this list will decrease with each pairing
-        teamPot = [T1, T2, T3, T4, T5, T6, T7, T8]
+        teamPot = [input("Team 1, Team 2, etc:\n"), input(), input(), input(), input(), input(), input(), input()]
         # Choose randomly two pairs from the list, print the match with proper spacing and remove the teams from the teamPot list
-        # This time, there are no rules. This is completely random draw
+        # This time, there are no rules. This is a completely random draw
+        # This is why team nation is not necessary
         match = 1
         while len(teamPot) > 0:
             home = random.choice(teamPot)
