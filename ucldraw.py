@@ -4,13 +4,9 @@ from xml.dom.minidom import Notation
 print("Which draw would you like to simulate?")
 while True:
     # Save the type of draw in a variable
-    draw = input("1) Group stage\n2) Round of 16\n3) Finals (Quarter-finals and beyond)\n")
-    # Code for group stage draw
-    # TODO: complete the case
-    if draw == '1':
-        pass
+    draw = input("1) Round of 16\n2) Finals (Quarter-finals and beyond)\n")
     # Code for round of 16 draw
-    elif draw == '2':
+    if draw == '1':
         # Input must be separated as follows: Team Name - Nationality
         A1, A1N = input("A1 & nation, A2 & nation, B1 & nation, etc :\n").split(sep = " - ")
         A2, A2N = input().split(sep = " - ")
@@ -110,7 +106,7 @@ Juventus - Italy
 Chelsea - England
         '''
     # Code for finals draw
-    elif draw == '3':
+    elif draw == '2':
         # Input must be separated as follows: Team Name - Nationality
         T1 = input("Team 1, Team 2, etc:\n")
         T2 = input()
@@ -163,7 +159,7 @@ Chelsea
         '''
     # If the user inputs a letter, or inputs a number other than 1, 2 or 3
     else:
-        print("Please choose a number between 1 to 3")
+        print("Please choose either 1 or 2")
         continue
     # A way to exit the program
     print("Do you want to continue the program?")

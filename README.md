@@ -1,8 +1,7 @@
 # python-ucl-draw
 #### A simulation of the UEFA Champions League different stages' draws using python
 
-This program can simulate the draws of three stages in the Champions League:
-* Group stage ***-not finished yet-***.
+This program can simulate the draws of two stages in the Champions League:
 * Round of 16.
 * Finals **(quarter-finals and beyond)**.
 
@@ -15,16 +14,6 @@ It is the only package needed, it is needed for two methods:
 Chooses an item from the list randomly.
 #### random.randrange(start, end, [step])
 Makes a list of numbers from the start to right before the end, with the step taken into consideration. Then chooses a number from the list randomly.
-
-## Group Stage Draw
-### How the draw works
-#### **Rules**
-#### **Pairing Process**
-
-
-### How the program works
-#### **Input**
-#### **Pairing Process**
 
 ## Round of 16 Draw
 ### How the draw works
