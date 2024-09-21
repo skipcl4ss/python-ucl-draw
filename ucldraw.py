@@ -171,17 +171,17 @@ Sheriff Tiraspol - Moldova
 
         def eligibleWinners(runner):
             '''
-            A function for making a list of eligible opponents for a certain runner from the winnersPot list,and append them in a pot of eligible winners, called eligibleWinnersPot.
+            A function for making a list of eligible opponents for a certain runner from the winnersPot list, and append them in a pot of eligible winners, called eligibleWinnersPot.
             Each eligible opponent must be:
                 1. A winner team (seeded teams V unseeded teams rule)
                 2. Of a different nation from the runner (country protection rule)
                 3. From a different group from the runner (group protection rule)
 
-                Parameters:
-                    runner (list): A list of of two elements, the first being the name of the runner, the second being its nation. Represents the runner in question.
+            Parameters:
+                runner (list): A list of two elements, the first being the runner's name and the second being its nation. Represents the runner in question.
 
-                Returns:
-                    eligibleWinnersPot (list): a list of lists, each nested list contains two elements, winner name and nation.
+            Returns:
+                eligibleWinnersPot (list): a list of lists, each nested list contains two elements, winner name, and nation.
             '''
             eligibleWinnersPot = []
             for winner in winnerPot:
@@ -192,14 +192,14 @@ Sheriff Tiraspol - Moldova
         match = 1
         while len(runnerPot) > 0:
             # The max number of teams from the same nation is five
-            # There is a special case where there are six winners, a runner team would find that four of the six winners are of the same of that runner's nation, and the fifth winner is of the same group oof the runner, then the sixth winner is paired automatically with that runner
-            # This can also happen with less than six winners, eg. five winners with four of them of the same nation of the spicific runner, or three of the same nation and one of the same group of the runner
+            # There is a special case where there are six winners, a runner team would find that four of the six winners are of the same of that runner's nation, and the fifth winner is of the same group as the runner, then the sixth winner is paired automatically with that runner
+            # This can also happen with fewer than six winners, eg. five winners with four of them of the same nation of the specific runner, or three of the same nation and one of the same group of the runner
             if len(winnerPot) <= 6:
                 # That special case is saved in the specialCase variable
                 specialCase = False
                 for runner in runnerPot:
                     eligibleWinners(runner)
-                    # If the special case happens, print the match (team name, nation and group) with proper spacing, remove the teams from their respective pots and break out of the inner loop
+                    # If the special case happens, print the match (team name, nation, and group) with proper spacing, remove the teams from their respective pots, and break out of the inner loop
                     if len(eligibleWinners(runner)) == 1:
                         winner = eligibleWinners(runner)[0]
                         print("Match #" + str(match) + ": " + runner[name] + " " * (20 - len(runner[name])) + "(" + runner[nation] + ")" + " " * (16 - len(runner[nation])) + "(Group " + chr(65 + runnerList.index(runner)) + ") V " + winner[name] + " " * (20 - len(winner[name])) + "(" + winner[nation] + ")" + " " * (16 - len(winner[nation])) + "(Group " + chr(65 + winnerList.index(winner)) + ")")
